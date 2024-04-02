@@ -14,7 +14,7 @@ This middleware simplifies input validation for Express.js applications, ensurin
     import { addRecord } from '../controllers/category';
     
     // Validating req.body
-    router.post('/addRecord', validator("body", ['title']), addRecord);
+    router.post('/addRecord', validator({key: "body", inputArr: ['title']}), addRecord);
     
     export default router;
     ```
