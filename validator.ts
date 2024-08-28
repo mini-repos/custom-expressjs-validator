@@ -13,7 +13,7 @@ import { Request, Response, NextFunction } from "express";
  * @returns An Express middleware function.
  */
 
-export function validateKeyInputs({ inputArr, key: field }: { inputArr: string[], key: keyof Request }) {
+export function validateKeyInputs({ inputArr, key: field }: { inputArr: string[], key: "body" | "query" | "params" }) {
     return (req: Request, res: Response, next: NextFunction) => {
         if (!inputArr || inputArr.length === 0) {
             return next();
