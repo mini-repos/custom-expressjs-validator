@@ -15,11 +15,11 @@ import { Request, Response, NextFunction } from "express";
 
 export function validateKeyInputs({ inputArr, key: field }: { inputArr: string[], key: "body" | "query" | "params" }) {
     return (req: Request, res: Response, next: NextFunction) => {
+        req["validData"] = {};
         if (!inputArr || inputArr.length === 0) {
             return next();
         }
         let errors: any[] = [];
-        req["validData"] = {};
         inputArr.forEach((input) => {
             if (!(String(input).startsWith("-"))) {
                 if ([undefined, null, ""].includes(req[field][input])) {
