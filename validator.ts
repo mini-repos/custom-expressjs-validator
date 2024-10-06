@@ -36,7 +36,7 @@ export function validateKeyInputs({ inputArr, key: field }: { inputArr: string[]
         if (errors.length > 0) {
             return res.status(400).json({
                 status: "error",
-                message: "provide the correct parameters",
+                message: `you have missed some inputs in ${field}`,
                 missedInputs: errors
             });
         }
